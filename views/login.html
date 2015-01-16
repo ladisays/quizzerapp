@@ -1,0 +1,12 @@
+<div ng-controller="LoginCtrl">
+  <form id="loginForm" ng-submit="login()">
+    <div>
+      <legend>Log in to Quizzer</legend>
+      <input type="text" placeholder="Email Address" ng-model="email" name="email">
+      <input type="password" placeholder="Password" ng-model="password" name="password">
+      <div class="buttons">
+        <button type="submit">Login</button>
+      </div>
+    </div>
+  </form>
+</div>

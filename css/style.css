@@ -1,0 +1,543 @@
+#auth {
+  display: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #10B38F;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+}
+
+#wrapper {
+  width: 100%;
+  position: relative;
+}
+
+header {
+  min-width: 100%;
+  height: 20vh;
+  box-shadow: 0 1px 10px 2px #333;
+  background-color: #fff;
+}
+
+#wrapper-logo {
+  width: 100%;
+  height: 55%;
+  margin: 0;/*
+  border-bottom: 1px solid #ddd;*/
+}
+
+nav {
+  margin: 0;
+  width: 100%;
+  height: 45%;
+  border-top: 1px solid #ddd;
+}
+
+nav a {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 10px;
+  width: 100%;
+  font-weight: 300;
+  text-decoration: none;
+  color: #008567;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.wrap-inner {
+  width: 70%;
+  margin: 0 auto;
+  height: 100%;
+}
+/*
+#logo {
+  width: 30%;
+}*/
+
+#logo, #navList {
+  float: left;
+  clear: left;
+  /*border: 1px solid red;*/
+  height: 100%;
+}
+
+#welcome, #search {
+  float: right;
+  clear: right;
+  /*border: 1px solid red;*/
+  height: 100%;
+}
+
+#welcome {
+  line-height: 5em;
+}
+
+#logo {
+  color: #10B38F;
+  font-size: 24px;
+  line-height: 3em;
+}
+
+#navList, #search {
+  line-height: 8.5vh;
+}
+
+#navList {
+  /*border-bottom: 1px solid #dd;*/
+}
+
+#navList li {
+  height: 100%;
+  /*border-left: 1px solid #ddd;*/
+}
+
+/*#navList li:last-child {
+  border-right: 1px solid #ddd;
+}*/
+
+#search input {
+  padding: 0 5px;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  height: 30px;
+  width: 20em;
+  box-shadow: inset 0 2px 2px 0 #ddd;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+}
+
+#search input:focus {
+  border-color: #008567;
+}
+
+#search button {
+  padding: 0 15px;
+  border-radius: 3px;
+  border: 2px solid #008567;
+  background-color: #10B38F;
+  color: #FFF;
+  height: 32px;
+  font-weight: bold;
+  box-shadow: 0 1px 2px 0 #999;
+  font-family: 'Lato', sans-serif;
+}
+
+#welcome {
+  font-weight: 300;
+}
+
+#welcome li:first-child a {
+  font-weight: 400;
+}
+
+#welcome a {
+  color: #008567;
+  text-decoration: none;
+}
+
+#welcome li:last-child {
+  margin-left: 20px;
+}
+
+#welcome li:last-child a {
+  text-decoration: underline;
+}
+
+
+
+/**************************************************************************
+
+ CONTENT STYLE FOR PARTIAL VIEWS ******************************************
+
+ **************************************************************************/
+
+#content {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+}
+
+#content form input {
+  font-weight: 300;
+}
+
+/**************************************************************************
+ LOGIN FORM ***************************************************************
+ **************************************************************************/
+
+#loginForm {
+  width: 35%;
+  margin: 40px auto;
+}
+
+#loginForm div:first-child {
+  background-color: #fefefe;
+  padding: 10px 0;
+  border-radius: 40px;
+  box-shadow: 0 5px 40px 2px #333;
+}
+
+#loginForm legend {
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  padding: 10px 0;
+  font-size: 24px;
+  color: #008567;
+}
+
+#loginForm input {
+  margin: 10px auto;
+  display: block;
+  padding: 0 5px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  height: 50px;
+  width: 15em;
+  box-shadow: inset 0 2px 2px 0 #ddd;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  color: #008567;
+}
+
+#loginForm input:focus {
+  border-color: #008567;
+}
+
+#loginForm .buttons {
+  width: 80%;
+  margin: 20px auto 10px auto;
+  text-align: center;
+}
+
+#loginForm button {
+  padding: 10px 35px;
+  border-radius: 8px;
+  border: 2px solid #008567;
+  background-color: #10B38F;
+  color: #FFF;
+  height: 50px;
+  font-weight: bold;
+  box-shadow: 0 1px 2px 0 #999;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+}
+
+
+/**************************************************************************
+ SIGNUP FORM **************************************************************
+ **************************************************************************/
+
+#signupForm {
+  width: 45%;
+  margin: 20px auto;
+}
+
+#signupForm div:first-child {
+  background-color: #fefefe;
+  padding: 10px 0;
+  border-radius: 40px;
+  box-shadow: 0 5px 40px 2px #333;
+}
+
+#signupForm legend {
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  padding: 10px 0;
+  font-size: 24px;
+  color: #008567;
+}
+
+#signupForm input {
+  margin: 10px auto;
+  display: block;
+  padding: 0 5px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  height: 50px;
+  width: 15em;
+  box-shadow: inset 0 2px 5px 0 #ddd;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  color: #008567;
+}
+
+#signupForm input:focus {
+  border-color: #008567;
+}
+
+#signupForm .buttons {
+  width: 80%;
+  margin: 20px auto 10px auto;
+  text-align: center;
+}
+
+#signupForm button {
+  padding: 10px 35px;
+  border-radius: 8px;
+  border: 2px solid #008567;
+  background-color: #10B38F;
+  color: #FFF;
+  height: 50px;
+  font-weight: bold;
+  box-shadow: 0 1px 2px 0 #999;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+}
+
+
+/**************************************************************************
+ QUESTION FORM ************************************************************
+ **************************************************************************/
+
+
+#questionForm {
+  width: 60%;
+  margin: 20px auto;
+}
+
+#questionForm div:first-child {
+  background-color: #fefefe;
+  padding: 10px 0;
+  border-radius: 40px;
+  box-shadow: 0 5px 40px 2px #333;
+}
+
+#questionForm legend {
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  padding: 10px 0;
+  font-size: 24px;
+  color: #008567;
+}
+
+#questionForm input {
+  margin: 10px auto;
+  display: block;
+  padding: 0 5px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  height: 50px;
+  width: 15em;
+  box-shadow: inset 0 2px 5px 0 #ddd;
+  outline: none;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  color: #008567;
+}
+
+#questionForm input:focus {
+  border-color: #008567;
+}
+
+#questionForm .buttons {
+  width: 80%;
+  margin: 20px auto 10px auto;
+  text-align: center;
+}
+
+#questionForm button {
+  padding: 10px 35px;
+  border-radius: 8px;
+  border: 2px solid #008567;
+  background-color: #10B38F;
+  color: #FFF;
+  height: 50px;
+  font-weight: bold;
+  box-shadow: 0 1px 2px 0 #999;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+#questionForm .optional {
+  background-color: #ddd;
+}
+
+#questionForm .optional:focus, #questionForm .optional:hover {
+  background-color: #fff;
+}
+
+#questionForm .right {
+  border-color: green;
+}
+
+#questionForm .wrong {
+  border-color: #F05757;
+}
+
+#questionForm .right:focus {
+  border-color: green;
+}
+
+#questionForm .wrong:focus {
+  border-color: #F05757;
+}
+
+
+/**************************************************************************
+ QUESTIONS GRID ***********************************************************
+ **************************************************************************/
+
+#questionsGrid {
+  width: 100%;
+  margin: 10px auto 40px auto;
+  background-color: #fefefe;
+  /*border-radius: 10px;*/
+  box-shadow: 0 5px 20px 0 #333;
+}
+
+#questionsGrid tr {
+  height: 40px;
+  border-bottom: 1px solid #10B38F;
+  color: #008567;
+}
+
+#questionsGrid tr:last-child {
+  border-bottom: none;
+}
+
+#questionsGrid tr:nth-child(2n+3) {
+  background-color: #00E7B4;
+  /*color: #FFF;*/
+}
+
+#questionsGrid th {
+  background-color: #008567;
+  color: #fff;
+  vertical-align: middle;
+  border: 1px solid #10B38F;
+  font-size: 16px;
+}
+
+#questionsGrid th:first-child {
+  width: 60%;
+}
+
+#questionsGrid th:last-child {
+  width: 20%;
+}
+
+#questionsGrid td {
+  padding: 5px 10px;
+  vertical-align: middle;
+}
+
+#questionsGrid tr td:nth-child(2) {
+  text-align: center;
+  border-left: 1px solid #10B38F;
+  border-right: 1px solid #10B38F;
+}
+
+#questionsGrid .buttons {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#questionsGrid button {
+  /*padding: 10px 20px;*/
+  width: 5em;
+  border-radius: 4px;
+  border: 2px solid #008567;
+  background-color: #10B38F;
+  color: #FFF;
+  height: 30px;
+  font-weight: bold;
+  box-shadow: 0 1px 2px 0 #999;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+
+
+/**************************************************************************
+ PROFILE VIEW *************************************************************
+ **************************************************************************/
+
+#profileView {
+  width: 40%;
+  margin: 0 auto;
+  background-color: #fefefe;
+  padding: 10px 20px;
+  border-radius: 40px;
+  box-shadow: 0 5px 40px 2px #333;
+  color: #10B38F;
+}
+
+#profileView ul, #profileView li {
+  width: 100%;
+  /*border: 1px solid #000;*/
+}
+
+#profileView ul {
+  margin-bottom: 10px;
+}
+
+#profileView li {
+  border-top: 1px solid #008567;
+}
+
+#profileView li:first-child {
+  border-top: none;
+}
+
+#profileView img {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#profileView li span {
+  display: inline-block;
+  padding: 10px 5px;
+}
+
+#profileView li span:first-child {
+  width: 50%;
+  text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
