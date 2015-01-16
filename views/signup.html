@@ -1,14 +1,16 @@
-          <form id="signupForm">
-            <div>
-              <legend>Sign up for a Quizzer account</legend>
-              <input type="text" placeholder="First Name">
-              <input type="text" placeholder="Last Name">
-              <input type="text" placeholder="Email Address">
-              <input type="password" placeholder="Password">
-              <input type="password" placeholder="Confirm Password">
-              <div class="buttons">
-                <button type="submit">Register</button>
-                <button type="reset">Cancel</button>
-              </div>
-            </div>
-          </form>
+<div ng-controller="SignupCtrl">
+  <form id="signupForm" ng-submit="signup()">
+    <div>
+      <legend>Sign up for a Quizzer account</legend>
+      <input type="text" placeholder="First Name" ng-model="firstName">
+      <input type="text" placeholder="Last Name" ng-model="lastName">
+      <input type="text" placeholder="Email Address" ng-model="email">
+      <input type="password" placeholder="Password" ng-model="password">
+      <input type="password" placeholder="Confirm Password" ng-model="c_password">
+      <div class="buttons">
+        <button type="submit">Register</button>
+        <button type="reset">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

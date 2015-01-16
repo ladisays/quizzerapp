@@ -22,14 +22,6 @@ var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
         $location.url('/login');
       }
       console.log(user);
-      // if(user === '0') {
-      //   console.log('Not logged in');
-      //   $timeout(function(){deferred.reject();}, 0);
-      // }
-      // else {
-      //   $timeout(deferred.resolve, 0);
-      //   console.log(user);
-      // }
     });
 
     return deferred.promise;
@@ -62,7 +54,7 @@ var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
   })
   .when('/signup', {
     templateUrl: 'views/signup.html',
-    controller: ''
+    controller: 'SignupCtrl'
   })
   .when('/login', {
     templateUrl: 'views/login.html',
@@ -91,6 +83,31 @@ var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
 //   };
 // });
 
+// quizzerapp.controller('LoginCtrl', function ($scope, $http, $rootScope, $location) {
+//   $scope.login = function(){
+//     console.log($scope.email, $scope.password);
+//     $http({
+//       method  : 'POST',
+//       url     : 'http://localhost:8080/login',
+//       data    : $.param({email: $scope.email, password: $scope.password}),  
+//       headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+//     })
+//     .success(function(user){
+//       // No error: authentication OK
+//       console.log('Authentication successful');
+//       // $rootScope.message = 'Authentication successful!';
+//       // $location.url('/profile');
+//     })
+//     .error(function(){
+//       // Error: authentication failed
+//       console.log('Authentication failed');
+//       // $rootScope.message = 'Authentication failed.';
+//       // $location.url('/login');
+//     });
+//   };
+// });
+
+
 
 quizzerapp.controller('LoginCtrl', function ($scope, $http, $rootScope, $location) {
   $scope.login = function(){
@@ -103,13 +120,15 @@ quizzerapp.controller('LoginCtrl', function ($scope, $http, $rootScope, $locatio
     })
     .success(function(user){
       // No error: authentication OK
-      $rootScope.message = 'Authentication successful!';
-      $location.url('/profile');
+      console.log('Authentication successful');
+      // $rootScope.message = 'Authentication successful!';
+      // $location.url('/profile');
     })
     .error(function(){
       // Error: authentication failed
-      $rootScope.message = 'Authentication failed.';
-      $location.url('/login');
+      console.log('Authentication failed');
+      // $rootScope.message = 'Authentication failed.';
+      // $location.url('/login');
     });
   };
 });
