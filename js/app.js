@@ -96,6 +96,18 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
       });
     },
 
+    logout: function(id) {
+      $http({
+        method  : 'POST',
+        url     : 'http://localhost:8080/logout',
+        data    : $.param({_id: id}),  
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function (res) {
+        console.log('You have been successfully logged out!');
+      });
+    },
+
     signup: function(firstName, lastName, email, password) {
       $http({
         method  : 'POST',
@@ -110,6 +122,7 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
       })
       .success(function (user) {
         console.log('You have successfully signed up!');
+        console.log(user);
       })
       .error(function (err) {
         console.log('There was an error trying to communicate with the server');
@@ -121,25 +134,109 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
 }]);
 
 
-quizzerapp.factory('Questions', ['$http', 'Auth', function ($http, Auth) {
+quizzerapp.factory('Questions', ['$http', '$location', 'Auth', function ($http, $location, Auth) {
   return {
-    createQuestion: function() {
-
+    createOneQuestion: function(tag, name, answer, wrongOptions) {
+      $http({
+        method  : 'POST',
+        url     : 'http://localhost:8080/profile/questions',
+        data    : $.param({
+          user_id: Auth.user._id,
+          tag: tag,
+          name: name,
+          answer: answer,
+          wrongOptions: wrongOptions
+        }),  
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function (question) {
+        console.log('You have successfully created a question');
+        console.log(question);
+      })
+      .error(function (err) {
+        console.log('There was an error creating the question!');
+        console.log(err);
+      });
     },
 
-    getAllQuestions: function() {
-
+    findAllQuestions: function() {
+      $http({
+        method  : 'GET',
+        url     : 'http://localhost:8080/profile/questions',
+        data    : $.param({user_id: Auth.user._id}),  
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function (questions) {
+        console.log('Here are your questions!');
+        console.log(questions);
+      })
+      .error(function (err) {
+        console.log('There was an error retrieving your questions from the server!');
+        console.log(err);
+      });
     },
 
-    findOneQuestion: function() {
-
+    findOneQuestion: function(id) {
+      $http({
+        method  : 'GET',
+        url     : 'http://localhost:8080/profile/questions/' + id,
+        data    : $.param({
+          _id: id,
+          user_id: Auth.user._id
+        }),  
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function (question) {
+        console.log('successfully retrieved a question.');
+        console.log(question);
+      })
+      .error(function (err) {
+        console.log('There was an error with your request.');
+        console.log(err);
+      });
     },
 
-    deleteQuestion: function() {
+    updateOneQuestion: function () {
+      $http({
+        method  : 'PUT',
+        url     : 'http://localhost:8080/profile/questions/:id',
+        data    : $.param({
+          _id: id,
+          user_id: Auth.user._id
+        }),  
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function (question) {
+        console.log('Successfully updated a question.');
+        console.log(question);
+      })
+      .error(function (err) {
+        console.log('There was an error with your request.');
+        console.log(err);
+      });
+    },
 
+    deleteOneQuestion: function() {
+      $http({
+        method  : 'DELETE',
+        url     : 'http://localhost:8080/profile/questions/:id',
+        data    : $.param({
+          _id: id,
+          user_id: Auth.user._id
+        }),  
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function (question) {
+        console.log('Successfully deleted a question.');
+        console.log(question);
+      })
+      .error(function (err) {
+        console.log('There was an error with your request.');
+        console.log(err);
+      });
     }
-  }
-}])
+  };
+}]);
 
 
 
