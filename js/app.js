@@ -56,27 +56,9 @@ var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
 
 
 
-quizzerapp.controller('LoginCtrl', function ($scope, $http, $location) {
+quizzerapp.controller('LoginCtrl', function ($scope, $http, $location, Auth) {
   $scope.login = function(){
-    console.log($scope.email, $scope.password);
-    $http({
-      method  : 'POST',
-      url     : 'http://localhost:8080/login',
-      data    : $.param({email: $scope.email, password: $scope.password}),  
-      headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
-    })
-    .success(function(user){
-      // No error: authentication OK
-      console.log('Authentication successful');
-      // $rootScope.message = 'Authentication successful!';
-      // $location.url('/profile');
-    })
-    .error(function(){
-      // Error: authentication failed
-      console.log('Authentication failed');
-      // $rootScope.message = 'Authentication failed.';
-      // $location.url('/login');
-    });
+    Auth.login();
   };
 });
 
@@ -94,6 +76,70 @@ quizzerapp.controller('userProfile', function ($scope, $http, $location) {
 });
 
 
+
+quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($cookieStore, $http, $location) {
+  return {
+    login: function(email, password) {
+      $http({
+        method  : 'POST',
+        url     : 'http://localhost:8080/login',
+        data    : $.param({
+          email: email,
+          password: password
+        }),
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function(user) {
+        console.log('You have successfully logged in.');
+        console.log(user);
+        $cookieStore.put('userDetails', user);
+      });
+    },
+
+    signup: function(firstName, lastName, email, password) {
+      $http({
+        method  : 'POST',
+        url     : 'http://localhost:8080/signup',
+        data    : $.param({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: password
+        }),  
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+      })
+      .success(function (user) {
+        console.log('You have successfully signed up!');
+      })
+      .error(function (err) {
+        console.log('There was an error trying to communicate with the server');
+      });
+    },
+
+    user: $cookieStore.get('userDetails')
+  };
+}]);
+
+
+quizzerapp.factory('Questions', ['$http', 'Auth', function ($http, Auth) {
+  return {
+    createQuestion: function() {
+
+    },
+
+    getAllQuestions: function() {
+
+    },
+
+    findOneQuestion: function() {
+
+    },
+
+    deleteQuestion: function() {
+
+    }
+  }
+}])
 
 
 
