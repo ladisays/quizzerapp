@@ -1,31 +1,5 @@
 var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
 .config(function($routeProvider, $locationProvider, $httpProvider) {
-  
-  var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
-    // Initialize a new promise
-    var deferred = $q.defer();
-
-    // Make an AJAX call to check if the user is logged in
-    $http.get('http://localhost:8080/loggedin').success(function(user){
-      // Authenticated
-      if (user !== '0') {
-        $timeout(deferred.resolve, 0);
-        console.log(user);
-      }
-
-
-      // Not Authenticated
-      else {
-        $rootScope.message = 'You need to log in.';
-        $timeout(function(){deferred.reject();}, 0);
-        console.log('Redirecting back to login');
-        $location.url('/login');
-      }
-      console.log(user);
-    });
-
-    return deferred.promise;
-  };
 
   // ================================================
   // Add an interceptor for AJAX errors
@@ -63,9 +37,6 @@ var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
   .when('/profile', {
     templateUrl: 'views/view.profile.html',
     controller: 'userProfile',
-    resolve: {
-      loggedin: checkLoggedin
-    }
   })
   .otherwise({
     redirectTo: '/'
@@ -83,33 +54,9 @@ var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
 //   };
 // });
 
-// quizzerapp.controller('LoginCtrl', function ($scope, $http, $rootScope, $location) {
-//   $scope.login = function(){
-//     console.log($scope.email, $scope.password);
-//     $http({
-//       method  : 'POST',
-//       url     : 'http://localhost:8080/login',
-//       data    : $.param({email: $scope.email, password: $scope.password}),  
-//       headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
-//     })
-//     .success(function(user){
-//       // No error: authentication OK
-//       console.log('Authentication successful');
-//       // $rootScope.message = 'Authentication successful!';
-//       // $location.url('/profile');
-//     })
-//     .error(function(){
-//       // Error: authentication failed
-//       console.log('Authentication failed');
-//       // $rootScope.message = 'Authentication failed.';
-//       // $location.url('/login');
-//     });
-//   };
-// });
 
 
-
-quizzerapp.controller('LoginCtrl', function ($scope, $http, $rootScope, $location) {
+quizzerapp.controller('LoginCtrl', function ($scope, $http, $location) {
   $scope.login = function(){
     console.log($scope.email, $scope.password);
     $http({
