@@ -24,7 +24,7 @@ var quizzerapp = angular.module('quizzerapp', ['ngCookies', 'ngRoute', 'ngResour
   $routeProvider
   .when('/', {
     templateUrl: 'views/main.html',
-    controller: ''
+    controller: 'WrapperCtrl'
   })
   .when('/signup', {
     templateUrl: 'views/signup.html',
@@ -54,6 +54,17 @@ var quizzerapp = angular.module('quizzerapp', ['ngCookies', 'ngRoute', 'ngResour
 // });
 
 
+quizzerapp.controller('WrapperCtrl', function ($scope, $cookieStore) {
+  $scope.isLoggedIn = false;
+  if($cookieStore.get('userDetails') !== undefined) {
+    console.log($cookieStore.get('userDetails'));
+    var user = $cookieStore.get('userDetails');
+    $scope.firstName = user.firstName;
+    $scope.lastName = user.lastName;
+    $scope.email = user.email;
+    $scope.isLoggedIn = true;
+  }
+});
 
 quizzerapp.controller('LoginCtrl', function ($scope, $http, $location, Auth) {
   $scope.login = function(){
@@ -108,6 +119,7 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
       })
       .success(function (res) {
         console.log('You have been successfully logged out!');
+        $scope.isLoggedIn = false;
       });
     },
 
