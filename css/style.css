@@ -1,6 +1,6 @@
-#auth {
+/*#auth {
   display: none;
-}
+}*/
 
 html, body {
   width: 100%;
@@ -79,11 +79,15 @@ nav a:hover {
   height: 100%;
 }
 
-#welcome, #search {
+#auth, #welcome, #search {
   float: right;
   clear: right;
   /*border: 1px solid red;*/
   height: 100%;
+}
+
+#auth {
+  line-height: 5em;
 }
 
 #welcome {
