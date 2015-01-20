@@ -55,7 +55,6 @@ var quizzerapp = angular.module('quizzerapp', ['ngCookies', 'ngRoute', 'ngResour
 
 
 quizzerapp.controller('WrapperCtrl', function ($scope, $cookieStore) {
-  $scope.isLoggedIn = false;
   if($cookieStore.get('userDetails') !== undefined) {
     console.log($cookieStore.get('userDetails'));
     var user = $cookieStore.get('userDetails');
@@ -63,6 +62,10 @@ quizzerapp.controller('WrapperCtrl', function ($scope, $cookieStore) {
     $scope.lastName = user.lastName;
     $scope.email = user.email;
     $scope.isLoggedIn = true;
+  }
+
+  else {
+    $scope.isLoggedIn = false;
   }
 });
 
