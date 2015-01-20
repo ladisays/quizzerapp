@@ -11,29 +11,29 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body ng-app="quizzerapp">
-    <div id="wrapper">
+    <div id="wrapper" ng-controller="WrapperCtrl">
       <header>
         <div id="wrapper-logo">
           <div class="wrap-inner">
-            <ul id="logo">
+            <ul id="logo" ng-show="isLoggedIn">
               <li>Quizzer App</li>
             </ul>
-            <ul id="welcome">
-              <li>Welcome <a href="">Ladi Adenusi</a></li>
+            <ul id="welcome" ng-show="isLoggedIn">
+              <li>Welcome <a href="">{{firstName + lastName}}</a></li>
               <li><a href="">Logout</a></li>
             </ul>
-            <ul id="auth">
+            <ul id="auth" ng-hide="isLoggedIn">
               <li><a href="">Sign Up</a></li>
               <li><a href="">Login</a></li>
             </ul>
           </div>
         </div>
-        <nav>
+        <nav ng-show="isLoggedIn">
           <div class="wrap-inner">
             <ul id="navList">
-              <li><a href="">Dashboard</a></li>
-              <li><a href="">Take Tests</a></li>
-              <li><a href="">Add Questions</a></li>
+              <li><a href="#/dashboard">Dashboard</a></li>
+              <li><a href="#/take-tests">Take Tests</a></li>
+              <li><a href="#/profile/questions/add">Add Questions</a></li>
             </ul>
             <div id="search">
               <form id="searchForm">
