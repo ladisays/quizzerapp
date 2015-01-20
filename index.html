@@ -20,7 +20,7 @@
             </ul>
             <ul id="welcome" ng-show="isLoggedIn">
               <li>Welcome <a href="">{{firstName + lastName}}</a></li>
-              <li><a href="">Logout</a></li>
+              <li><a href="" ng-click="logout()">Logout</a></li>
             </ul>
             <ul id="auth" ng-hide="isLoggedIn">
               <li><a href="#/signup">Sign Up</a></li>

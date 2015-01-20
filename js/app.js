@@ -54,14 +54,18 @@ var quizzerapp = angular.module('quizzerapp', ['ngCookies', 'ngRoute', 'ngResour
 // });
 
 
-quizzerapp.controller('WrapperCtrl', function ($scope, $cookieStore) {
+quizzerapp.controller('WrapperCtrl', function ($scope, $cookieStore, Auth) {
   if($cookieStore.get('userDetails') !== undefined) {
     console.log($cookieStore.get('userDetails'));
     var user = $cookieStore.get('userDetails');
+    var user_id = user._id;
     $scope.firstName = user.firstName;
     $scope.lastName = user.lastName;
     $scope.email = user.email;
     $scope.isLoggedIn = true;
+    $scope.logout = function() {
+      Auth.logout(user_id);
+    }
   }
 
   else {
@@ -122,7 +126,7 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
       })
       .success(function (res) {
         console.log('You have been successfully logged out!');
-        $scope.isLoggedIn = false;
+        $cookieStore.remove('userDetails');
       });
     },
 
