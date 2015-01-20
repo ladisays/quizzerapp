@@ -1,4 +1,4 @@
-var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
+var quizzerapp = angular.module('quizzerapp', ['ngCookies', 'ngRoute', 'ngResource'])
 .config(function($routeProvider, $locationProvider, $httpProvider) {
 
   // ================================================
@@ -58,10 +58,11 @@ var quizzerapp = angular.module('quizzerapp', ['ngRoute', 'ngResource'])
 
 quizzerapp.controller('LoginCtrl', function ($scope, $http, $location, Auth) {
   $scope.login = function(){
-    Auth.login();
+    Auth.login($scope.email, $scope.password);
   };
 });
 
+<<<<<<< HEAD
 quizzerapp.controller('userProfile', function ($scope, $http, $location) {
   // $http({
   //   method: 'GET',
@@ -77,6 +78,22 @@ quizzerapp.controller('userProfile', function ($scope, $http, $location) {
   // .error(function(err) {
   //   console.log(err);
   // });
+=======
+quizzerapp.controller('SignupCtrl', function ($scope, $http, $location, Auth) {
+  $scope.signup = function() {
+    Auth.signup($scope.firstName, $scope.lastName, $scope.email, $scope.password);
+  };
+})
+
+quizzerapp.controller('userProfile', function ($scope, $http, $location, $cookieStore) {
+  if($cookieStore.get('userDetails') !== undefined) {
+    console.log($cookieStore.get('userDetails'));
+    var user = $cookieStore.get('userDetails');
+    $scope.firstName = user.firstName;
+    $scope.lastName = user.lastName;
+    $scope.email = user.email;
+  }
+>>>>>>> master
 });
 
 
@@ -127,6 +144,7 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
       .success(function (user) {
         console.log('You have successfully signed up!');
         console.log(user);
+        $cookieStore.put('userDetails', user);
       })
       .error(function (err) {
         console.log('There was an error trying to communicate with the server');
