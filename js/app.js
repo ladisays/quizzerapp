@@ -41,7 +41,6 @@ var quizzerapp = angular.module('quizzerapp', ['ngCookies', 'ngRoute', 'ngResour
   .otherwise({
     redirectTo: '/'
   });
-
 }); // end config
 
 // .run(function($rootScope, $http) {
@@ -62,23 +61,7 @@ quizzerapp.controller('LoginCtrl', function ($scope, $http, $location, Auth) {
   };
 });
 
-<<<<<<< HEAD
-quizzerapp.controller('userProfile', function ($scope, $http, $location) {
-  // $http({
-  //   method: 'GET',
-  //   url: 'http://localhost:8080/profile',
-  //   data:
-  // })
-  // .success(function (user) {
-  //   console.log(user);
-  //   $scope.firstName = user.firstName;
-  //   $scope.lastName = user.lastName;
-  //   $scope.email = user.email;
-  // })
-  // .error(function(err) {
-  //   console.log(err);
-  // });
-=======
+
 quizzerapp.controller('SignupCtrl', function ($scope, $http, $location, Auth) {
   $scope.signup = function() {
     Auth.signup($scope.firstName, $scope.lastName, $scope.email, $scope.password);
@@ -93,7 +76,6 @@ quizzerapp.controller('userProfile', function ($scope, $http, $location, $cookie
     $scope.lastName = user.lastName;
     $scope.email = user.email;
   }
->>>>>>> master
 });
 
 
