@@ -407,8 +407,8 @@ nav a:hover {
  **************************************************************************/
 
 #questionsGrid {
-  width: 100%;
-  margin: 10px auto 40px auto;
+  width: 70%;
+  /*margin: 10px auto 40px auto;*/
   background-color: #fefefe;
   /*border-radius: 10px;*/
   box-shadow: 0 5px 20px 0 #333;
@@ -438,11 +438,11 @@ nav a:hover {
 }
 
 #questionsGrid th:first-child {
-  width: 60%;
+  width: 50%;
 }
 
 #questionsGrid th:last-child {
-  width: 20%;
+  width: 30%;
 }
 
 #questionsGrid td {
@@ -483,13 +483,15 @@ nav a:hover {
  **************************************************************************/
 
 #profileView {
-  width: 40%;
-  margin: 0 auto;
+  width: 20%;
+  /*margin: 0 auto;*/
+  margin-right: 40px;
   background-color: #fefefe;
   padding: 10px 20px;
-  border-radius: 40px;
+  border-radius: 20px;
   box-shadow: 0 5px 40px 2px #333;
   color: #10B38F;
+  float: left;
 }
 
 #profileView ul, #profileView li {
@@ -511,7 +513,7 @@ nav a:hover {
 
 #profileView img {
   display: block;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -520,10 +522,10 @@ nav a:hover {
   padding: 10px 5px;
 }
 
-#profileView li span:first-child {
-  width: 50%;
+/*#profileView li span:first-child {
+  width: 40%;
   text-align: right;
-}
+}*/
 
 
 

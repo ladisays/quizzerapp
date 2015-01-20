@@ -19,8 +19,8 @@
               <li>Quizzer App</li>
             </ul>
             <ul id="welcome" ng-show="isLoggedIn">
-              <li>Welcome <a href="">{{firstName + lastName}}</a></li>
-              <li><a href="" ng-click="logout()">Logout</a></li>
+              <li>Welcome <a href="#/profile" ng-bind-template="{{firstName + ' ' + lastName}}"></a></li>
+              <li><a href="#" ng-click="logout()">Logout</a></li>
             </ul>
             <ul id="auth" ng-hide="isLoggedIn">
               <li><a href="#/signup">Sign Up</a></li>
@@ -31,8 +31,8 @@
         <nav ng-show="isLoggedIn">
           <div class="wrap-inner">
             <ul id="navList">
-              <li><a href="#/dashboard">Dashboard</a></li>
-              <li><a href="#/take-tests">Take Tests</a></li>
+              <li><a href="#/profile">Dashboard</a></li>
+              <!-- <li><a href="#/take-tests">Take Tests</a></li> -->
               <li><a href="#/profile/questions/add">Add Questions</a></li>
             </ul>
             <div id="search">

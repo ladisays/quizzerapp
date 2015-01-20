@@ -1,16 +1,36 @@
-<div id="profileView" ng-controller="userProfile">
-  <ul>
-    <li>
-      <img src="images/placeholder.png" alt="User" title="Profile photo">
-    </li>
-    <li>
-      <span>First Name:</span><span>{{firstName}}</span>
-    </li>
-    <li>
-      <span>Last Name:</span><span>{{lastName}}</span>
-    </li>
-    <li>
-      <span>Email address:</span><span>{{email}}</span>
-    </li>
-  </ul>
+<div ng-controller="userProfile">
+  <div id="profileView">
+    <ul>
+      <li>
+        <img src="images/placeholder.png" alt="User" title="Profile photo">
+      </li>
+      <li>
+        <span>First Name:</span><span>{{firstName}}</span>
+      </li>
+      <li>
+        <span>Last Name:</span><span>{{lastName}}</span>
+      </li>
+      <li>
+        <span>Email:</span><span>{{email}}</span>
+      </li>
+    </ul>
+  </div>
+
+  <table id="questionsGrid" ng-init="questions()">
+    <tr>
+      <th>Question</th>
+      <th>Tag</th>
+      <th>Action</th>
+    </tr>
+    <tr ng-repeat="question in questions">
+      <td ng-bind-template="{{question.name}}"></td>
+      <td ng-bind-template="{{question.tag}}"></td>
+      <td>
+        <div class="buttons">
+          <button type="button" ng-click="edit(question._id)">Edit</button>
+          <button type="button" ng-click="delete(question._id)">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
