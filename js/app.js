@@ -63,16 +63,20 @@ quizzerapp.controller('LoginCtrl', function ($scope, $http, $location, Auth) {
 });
 
 quizzerapp.controller('userProfile', function ($scope, $http, $location) {
-  $http('http://localhost:8080/profile')
-  .success(function (user) {
-    console.log(user);
-    $scope.firstName = user.firstName;
-    $scope.lastName = user.lastName;
-    $scope.email = user.email;
-  })
-  .error(function(err) {
-    console.log(err);
-  });
+  // $http({
+  //   method: 'GET',
+  //   url: 'http://localhost:8080/profile',
+  //   data:
+  // })
+  // .success(function (user) {
+  //   console.log(user);
+  //   $scope.firstName = user.firstName;
+  //   $scope.lastName = user.lastName;
+  //   $scope.email = user.email;
+  // })
+  // .error(function(err) {
+  //   console.log(err);
+  // });
 });
 
 
