@@ -20,17 +20,17 @@
             <ul id="logo">
               <li>Quizzer App</li>
             </ul>
-            <ul id="welcome" ng-if="isLoggedIn">
+            <ul id="welcome" ng-show="isLoggedIn" ng-cloak>
               <li>Welcome <a href="#/profile" ng-bind-template="{{firstName + ' ' + lastName}}"></a></li>
               <li><a href="#" ng-click="logout()">Logout</a></li>
             </ul>
-            <ul id="auth" ng-if="isLoggedIn">
+            <ul id="auth" ng-hide="isLoggedIn" ng-cloak>
               <li><a href="#/signup">Sign Up</a></li>
               <li><a href="#/login">Login</a></li>
             </ul>
           </div>
         </div>
-        <nav ng-if="isLoggedIn">
+        <nav ng-show="isLoggedIn" ng-cloak>
           <div class="wrap-inner">
             <ul id="navList">
               <li><a href="#/profile">Dashboard</a></li>
