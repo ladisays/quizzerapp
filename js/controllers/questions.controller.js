@@ -17,7 +17,7 @@ quizzerapp.controller('QuestionsCtrl', function ($scope, $http, $location, $cook
 
       $http({
         method  : 'GET',
-        url     : 'http://localhost:8080/profile/' + user._id + '/questions/' + $routeParams.id,
+        url     : 'http://quizzerapi.herokuapp.com/profile/' + user._id + '/questions/' + $routeParams.id,
         data    : $.param({
           _id: $routeParams.id,
           user_id: user._id

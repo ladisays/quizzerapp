@@ -8,14 +8,14 @@ quizzerapp.controller('userProfile', function ($scope, $http, $location, $cookie
     $scope.lastName = parser(user.lastName);
     $scope.email = user.email;
 
-    $http.get('http://localhost:8080/profile/'+ user._id +'/tags')
+    $http.get('http://quizzerapi.herokuapp.com/profile/'+ user._id +'/tags')
     .success(function (tags) {
       $scope.tags = tags;
       // console.log($scope.tags);
     });
 
     // if($scope.tagList.value !== '') {
-      // $http.get('http://localhost:8080/profile/'+ user._id +'/tags/' + $scope.tagList)
+      // $http.get('http://quizzerapi.herokuapp.com/profile/'+ user._id +'/tags/' + $scope.tagList)
       // .success(function (questions) {
       //   console.log(questions);
       //   console.log($scope.tagList);
@@ -24,7 +24,7 @@ quizzerapp.controller('userProfile', function ($scope, $http, $location, $cookie
     
     $http({
       method  : 'GET',
-      url     : 'http://localhost:8080/profile/' + user._id +'/questions'  
+      url     : 'http://quizzerapi.herokuapp.com/profile/' + user._id +'/questions'  
     })
     .success(function (questions) {
       // console.log(questions);

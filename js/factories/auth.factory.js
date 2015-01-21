@@ -6,7 +6,7 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
     login: function(email, password) {
       $http({
         method  : 'POST',
-        url     : 'http://localhost:8080/login',
+        url     : 'http://quizzerapi.herokuapp.com/login',
         data    : $.param({
           email: email,
           password: password
@@ -38,7 +38,7 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
     logout: function(id) {
       $http({
         method  : 'POST',
-        url     : 'http://localhost:8080/logout',
+        url     : 'http://quizzerapi.herokuapp.com/logout',
         data    : $.param({_id: id}),  
         headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
       })
@@ -52,7 +52,7 @@ quizzerapp.factory('Auth', ['$cookieStore', '$http', '$location', function ($coo
     signup: function(firstName, lastName, email, password) {
       $http({
         method  : 'POST',
-        url     : 'http://localhost:8080/signup',
+        url     : 'http://quizzerapi.herokuapp.com/signup',
         data    : $.param({
           firstName: firstName,
           lastName: lastName,

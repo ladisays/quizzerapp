@@ -5,7 +5,7 @@ quizzerapp.factory('Questions', ['$http', '$location', 'Auth', function ($http, 
     createOne: function(user_id, tag, name, answer, wrongOptions) {
       $http({
         method  : 'POST',
-        url     : 'http://localhost:8080/profile/'+ user_id +'/questions',
+        url     : 'http://quizzerapi.herokuapp.com/profile/'+ user_id +'/questions',
         data    : $.param({
           user_id: user_id,
           tag: tag,
@@ -30,7 +30,7 @@ quizzerapp.factory('Questions', ['$http', '$location', 'Auth', function ($http, 
     findAll: function(id) {
       $http({
         method  : 'GET',
-        url     : 'http://localhost:8080/profile/' + id +'/questions',
+        url     : 'http://quizzerapi.herokuapp.com/profile/' + id +'/questions',
         data    : $.param({}),  
         headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
       })
@@ -48,7 +48,7 @@ quizzerapp.factory('Questions', ['$http', '$location', 'Auth', function ($http, 
     findOne: function(id, user_id) {
       $http({
         method  : 'GET',
-        url     : 'http://localhost:8080/profile/' + user_id + '/questions/' + id,
+        url     : 'http://quizzerapi.herokuapp.com/profile/' + user_id + '/questions/' + id,
         data    : $.param({
           _id: id,
           user_id: user_id
@@ -69,7 +69,7 @@ quizzerapp.factory('Questions', ['$http', '$location', 'Auth', function ($http, 
     updateOne: function (id, user_id, tag, name, answer, wrongOptions) {
       $http({
         method  : 'PUT',
-        url     : 'http://localhost:8080/profile/' + user_id + '/questions/' + id,
+        url     : 'http://quizzerapi.herokuapp.com/profile/' + user_id + '/questions/' + id,
         data    : $.param({
           _id: id,
           user_id: user_id,
@@ -94,7 +94,7 @@ quizzerapp.factory('Questions', ['$http', '$location', 'Auth', function ($http, 
     deleteOne: function(id, user_id) {
       $http({
         method  : 'DELETE',
-        url     : 'http://localhost:8080/profile/' + user_id + '/questions/' + id,
+        url     : 'http://quizzerapi.herokuapp.com/profile/' + user_id + '/questions/' + id,
         data    : $.param({
           id: id,
           user_id: user_id
