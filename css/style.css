@@ -246,6 +246,12 @@ nav a:hover {
   font-family: 'Lato', sans-serif;
 }
 
+#loginForm p {
+  color: #008567;
+  margin: 10px auto;
+  width: 50%;
+}
+
 
 /**************************************************************************
  SIGNUP FORM **************************************************************
@@ -492,6 +498,11 @@ nav a:hover {
   box-shadow: 0 5px 40px 2px #333;
   color: #10B38F;
   float: left;
+}
+
+.para {
+  color: #FFF;
+  margin-bottom: 10px;
 }
 
 #profileView ul, #profileView li {
