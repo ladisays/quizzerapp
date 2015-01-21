@@ -8,7 +8,7 @@ quizzerapp.controller('WrapperCtrl', function ($scope, $cookieStore, $location, 
     $scope.lastName = parser(user.lastName);
     $scope.email = user.email;
 
-    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isLoggedIn = true;
     console.log($scope.isLoggedIn);
 
     $scope.logout = function() {
